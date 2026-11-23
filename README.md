@@ -118,7 +118,7 @@
       <a href="#gallery">Gallery</a>
       <a href="#videos">Videos</a>
       <a href="#contact">Contact</a>
-      <a href="#book" class="book-btn">Book Now</a>
+      <a href="https://www.tspacoloradosprings.com/salon-services/" class="book-btn">Book Now</a>
     </nav>
   </header>
 
