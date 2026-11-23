@@ -7,7 +7,6 @@
   }
 
   body {
-    /* Updated path to point to your local assets folder */
     background-image: url('./assets/images/background.jpg') !important;
     background-size: cover;
     background-position: center;
@@ -79,7 +78,7 @@
   .intro-text {
     text-align: center;
     font-size: 1.2rem;
-	font-weight: bold;
+    font-weight: bold;
     color: #222;
     margin-bottom: 40px;
     max-width: 800px;
@@ -102,9 +101,42 @@
   /* Styling individual video frames */
   .video-container video {
     display: block;
+    max-width: 100%;                          /* Prevents overflow */
     border-radius: 12px;                      /* Smooth rounded video corners */
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);  /* Elegant floating shadow effect */
     background-color: #000;                   /* Pre-loading background black */
+  }
+
+  /* Custom classes for desktop sizes */
+  .vid-large { width: 50%; }
+  .vid-small { width: 25%; }
+
+  /* Mobile Responsive Optimizations */
+  @media (max-width: 768px) {
+    .header-bar {
+      padding: 15px;
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+    }
+    
+    .nav-links a:not(.book-btn) {
+      display: none; /* Hides secondary links on mobile to save space */
+    }
+
+    .nav-links a.book-btn {
+      margin-left: 0;
+    }
+
+    .main-content {
+      margin-top: 140px; /* Account for taller stacked header */
+    }
+
+    /* Force all videos to take up optimal mobile viewing width */
+    .video-container video.vid-large,
+    .video-container video.vid-small {
+      width: 90%;
+    }
   }
 </style>
 
@@ -112,7 +144,7 @@
 
   <!-- Header Bar Element with updated menu buttons -->
   <header class="header-bar">
-    <div class="logo">Kaylee McMacken - Cosmotologist</div>
+    <div class="logo">Kaylee McMacken - Cosmetologist</div>
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
@@ -127,24 +159,24 @@
     
     <p class="intro-text">I am a cosmetologist specializing in nail art. Check out my portfolio below!</p>
 
-    <!-- Center-aligned videos -->
+    <!-- Center-aligned videos with mobile responsive classes -->
     <div class="video-container" id="videos">
-      <video width="50%" controls>
+      <video class="vid-large" controls>
         <source src="./assets/videos/vid1.mp4" type="video/mp4">
         Your browser does not support the video tag
       </video>
 
-      <video width="50%" controls>
+      <video class="vid-large" controls>
         <source src="./assets/videos/vid2.mp4" type="video/mp4">
         Your browser does not support the video tag
       </video>
 
-      <video width="25%" controls>
+      <video class="vid-small" controls>
         <source src="./assets/videos/vid3.mp4" type="video/mp4">
         Your browser does not support the video tag
       </video>
 
-      <video width="25%" controls>
+      <video class="vid-small" controls>
         <source src="./assets/videos/vid4.mp4" type="video/mp4">
         Your browser does not support the video tag
       </video>
