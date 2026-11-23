@@ -215,7 +215,7 @@
 
   <!-- Premium Header Bar Navigation -->
   <header class="header-bar">
-    <div class="logo">Kaylee Cosmotology</div>
+    <div class="logo">Kaylee Cosmetology</div>
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
