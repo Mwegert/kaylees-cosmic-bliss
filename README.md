@@ -94,22 +94,37 @@
     display: flex;
     flex-direction: column; 
     align-items: center;    
-    gap: 30px;              /* Clean spacing between the videos */
-    padding-bottom: 50px;
+    gap: 40px;              /* Increased gap for a cleaner layout */
+    padding-bottom: 60px;
   }
 
-  /* Styling individual video frames */
+  /* Modernized individual video frames */
   .video-container video {
     display: block;
-    max-width: 100%;                          /* Prevents overflow */
-    border-radius: 12px;                      /* Smooth rounded video corners */
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);  /* Elegant floating shadow effect */
-    background-color: #000;                   /* Pre-loading background black */
+    max-width: 100%;                          
+    border-radius: 16px;                      /* Rounder, friendlier modern corners */
+    background-color: #111;                   /* Richer deep dark fallback background */
+    outline: none;
+    
+    /* Premium frosted glass-like border stroke */
+    border: 1px solid rgba(255, 255, 255, 0.4); 
+    
+    /* Dual layer drop shadow: 1 soft ambient glow + 1 sleek dark positioning shadow */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 25px rgba(255, 107, 129, 0.05); 
+    
+    /* Fluid timing curve for modern smooth movement transitions */
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+  }
+
+  /* Interactive hover micro-effects */
+  .video-container video:hover {
+    transform: translateY(-6px) scale(1.015); /* Elegantly lifts up and micro-zooms on pointer hover */
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.25), 0 0 35px rgba(255, 107, 129, 0.15); /* Glow intensifies */
   }
 
   /* Custom classes for desktop sizes */
-  .vid-large { width: 50%; }
-  .vid-small { width: 25%; }
+  .vid-large { width: 55%; }
+  .vid-small { width: 35%; }
 
   /* Mobile Responsive Optimizations */
   @media (max-width: 768px) {
@@ -123,23 +138,28 @@
     .nav-links {
       width: 100%;
       justify-content: center;
-      flex-wrap: wrap;       /* Allows buttons to wrap gracefully if the screen is very narrow */
+      flex-wrap: wrap;       
       gap: 10px;
     }
 
     .nav-links a {
-      margin-left: 0;       /* Replaced with container gap spacing */
-      font-size: 0.9rem;    /* Makes font slightly cleaner on mobile */
+      margin-left: 0;       
+      font-size: 0.9rem;    
     }
 
     .main-content {
-      margin-top: 160px;    /* Extra spacing to prevent stacked header from overlapping text */
+      margin-top: 160px;    
     }
 
     /* Force all videos to take up optimal mobile viewing width */
     .video-container video.vid-large,
     .video-container video.vid-small {
-      width: 90%;
+      width: 92%;
+    }
+
+    /* Tones down hover lift movement on touch screens */
+    .video-container video:hover {
+      transform: none;
     }
   }
 </style>
@@ -161,7 +181,7 @@
   <!-- Pushes content down so the fixed header doesn't block it -->
   <main class="main-content">
     
-    <p class="intro-text">I am a cosmetologist specializing in nail art. Check out my portfolio below!</p>
+    <p class="intro-text">I am a full service cosmotologist- check out my portfolio below and book today!</p>
 
     <!-- Center-aligned videos with mobile responsive classes -->
     <div class="video-container" id="videos">
