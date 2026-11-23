@@ -109,6 +109,7 @@
       background-color: rgba(253, 251, 252, 0.92); /* Protects readability over background image */
       border-radius: 12px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+	  background: #7BA4C7;
     }
 
     /* Hero Text Formatting */
@@ -130,7 +131,7 @@
 
     .intro-text {
       font-size: 1.1rem;
-      color: #666666;
+      color: #2D3136;
       font-weight: 300;
     }
 
@@ -229,8 +230,8 @@
   <main class="main-content">
     
     <div class="intro-section">
-      <h1>Cosmetology Portfolio</h1>
-      <p class="intro-text">Full-service cosmetologist specializing in modern transformations. Explore my portfolio below and book your appointment today.</p>
+      <h1>Portfolio</h1>
+      <p class="intro-text">Full-service cosmetologist. Explore my portfolio and book your appointment today:)</p>
     </div>
 
     <!-- Symmetrical Professional Media Portfolio Layout -->
