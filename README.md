@@ -8,7 +8,7 @@
 
   body {
     /* Updated path to point to your local assets folder */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('./assets/images/background.jpg') !important;
+    background-image: url('./assets/images/background.jpg') !important;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -79,6 +79,7 @@
   .intro-text {
     text-align: center;
     font-size: 1.2rem;
+	font-weight: bold;
     color: #222;
     margin-bottom: 40px;
     max-width: 800px;
@@ -111,7 +112,7 @@
 
   <!-- Header Bar Element with updated menu buttons -->
   <header class="header-bar">
-    <div class="logo">Kaylee McMacken</div>
+    <div class="logo">Kaylee McMacken - Cosmotologist</div>
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
@@ -138,12 +139,12 @@
         Your browser does not support the video tag
       </video>
 
-      <video width="50%" controls>
+      <video width="25%" controls>
         <source src="./assets/videos/vid3.mp4" type="video/mp4">
         Your browser does not support the video tag
       </video>
 
-      <video width="50%" controls>
+      <video width="25%" controls>
         <source src="./assets/videos/vid4.mp4" type="video/mp4">
         Your browser does not support the video tag
       </video>
