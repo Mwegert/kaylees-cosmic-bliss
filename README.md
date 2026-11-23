@@ -64,16 +64,20 @@
       gap: 28px;
     }
 
-    .nav-links a {
+    .nav-links button, .nav-links a {
+      background: none;
+      border: none;
       text-decoration: none;
       color: #555555;
+      font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
       font-weight: 500;
       letter-spacing: 0.5px;
       transition: color 0.3s ease;
+      cursor: pointer;
     }
 
-    .nav-links a:hover {
+    .nav-links button:hover, .nav-links button.active {
       color: #B57C7C; /* Elegant Rose Gold Accent */
     }
 
@@ -135,15 +139,15 @@
       font-weight: 300;
     }
 
-    /* Modern 2-Column Grid for Videos */
-    .video-grid {
+    /* Modern 2-Column Grid for Videos and Images */
+    .video-grid, .gallery-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 32px;
     }
 
-    /* Individual Video Cards */
-    .video-card {
+    /* Individual Cards */
+    .video-card, .gallery-card {
       background: #FFFFFF;
       border-radius: 8px;
       overflow: hidden;
@@ -152,24 +156,89 @@
       transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
     }
 
-    .video-card video {
+    .video-card video, .gallery-card img {
       display: block;
       width: 100%;
       height: auto;
       aspect-ratio: 16 / 9;
       object-fit: cover;
-      background-color: #000000;
       outline: none;
     }
 
-    .video-card:hover {
+    .video-card video {
+      background-color: #000000;
+    }
+
+    .video-card:hover, .gallery-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     }
 
+    /* Form Design */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #1A1A1A;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #DDDDDD;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background-color: #2D2D2D;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #B57C7C;
+    }
+
+    /* Content Switching Utility Classes */
+    .portfolio-section {
+      display: none;
+    }
+    
+    .portfolio-section.active {
+      display: block;
+    }
+
     /* Responsiveness Optimizations */
     @media (max-width: 900px) {
-      .video-grid {
+      .video-grid, .gallery-grid {
         grid-template-columns: 1fr; /* Stack layout seamlessly on smaller devices */
         gap: 24px;
       }
@@ -193,7 +262,7 @@
         justify-content: center;
       }
 
-      .nav-links a {
+      .nav-links button, .nav-links a {
         font-size: 0.85rem;    
       }
 
@@ -206,7 +275,7 @@
         font-size: 2rem;
       }
 
-      .video-card:hover {
+      .video-card:hover, .gallery-card:hover {
         transform: none; /* Disables hover translation effects on touch devices */
       }
     }
@@ -216,13 +285,13 @@
 
   <!-- Premium Header Bar Navigation -->
   <header class="header-bar">
-    <div class="logo">Kaylee Cosmetology</div>
-    <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#videos">Videos</a>
-      <a href="#contact">Contact</a>
-      <a href="https://tspacoloradosprings.com" class="book-btn">Book Now</a>
+    <div class="logo">@kayleescosmicbliss</div>
+    <nav class="nav-links" id="navLinks">
+      <button id="btn-about" onclick="showSection('about')">About</button>
+      <button id="btn-gallery" onclick="showSection('gallery')">Gallery</button>
+      <button id="btn-videos" onclick="showSection('videos')">Videos</button>
+      <button id="btn-contact" onclick="showSection('contact')">Contact</button>
+      <a href="tel:7192669400" class="book-btn">Book Now</a>
     </nav>
   </header>
 
@@ -230,42 +299,135 @@
   <main class="main-content">
     
     <div class="intro-section">
-      <h1>Portfolio</h1>
-      <p class="intro-text">Full-service cosmetologist. Explore my portfolio and book your appointment today:)</p>
+      <h1 id="sectionTitle">Portfolio</h1>
+      <p class="intro-text" id="sectionDesc">Full-service cosmetologist. Explore my portfolio and book your appointment today :)</p>
     </div>
 
-    <!-- Symmetrical Professional Media Portfolio Layout -->
-    <div class="video-grid" id="videos">
-      <div class="video-card">
-        <video controls>
-          <source src="./assets/videos/vid1.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+    <!-- About Section -->
+    <section id="about" class="portfolio-section">
+      <div style="background: #FFFFFF; padding: 40px; border-radius: 8px; max-width: 800px; margin: 0 auto;">
+        <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 20px;">Hi, I'm Kaylee McMacken</h2>
+        <p style="margin-bottom: 15px;">Welcome to my cosmic oasis! As a  cosmetology student, I specialize in transforming hair - particularly curly hair, skin, and nails to help my clients look and feel their absolute best.</p>
       </div>
+    </section>
 
-      <div class="video-card">
-        <video controls>
-          <source src="./assets/videos/vid2.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+    <!-- Gallery Section -->
+    <section id="gallery" class="portfolio-section">
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="./assets/images/nail1.jpeg" alt="Cosmetology Work 1" onerror="this.style.background='#eee'; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'50\'><text x=\'10\' y=\'30\'>Gallery Image 1</text></svg>'">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/images/nail2.jpeg" alt="Cosmetology Work 2" onerror="this.style.background='#eee'; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'50\'><text x=\'10\' y=\'30\'>Gallery Image 2</text></svg>'">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/images/nail3.jpeg" alt="Cosmetology Work 3" onerror="this.style.background='#eee'; this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='50'><text x='10' y='30'><text x=\'10\' y=\'30\'>Gallery Image 3</text></svg>'">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/images/facial.jpeg" alt="Cosmetology Work 4" onerror="this.style.background='#eee'; this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='50'><text x='10' y='30'><text x=\'10\' y=\'30\'>Gallery Image 4</text></svg>'">
+        </div>
       </div>
+    </section>
+	
+    <!-- Videos Section -->
+    <section id="videos" class="portfolio-section">
+		<div class="video-grid">
+		  <div class="video-card">
+			<video controls>
+			  <source src="./assets/videos/vid1.mp4" type="video/mp4">
+			  Your browser does not support the video tag.
+			</video>
+		  </div>
 
-      <div class="video-card">
-        <video controls>
-          <source src="./assets/videos/vid3.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+		  <div class="video-card">
+			<video controls>
+			  <source src="./assets/videos/vid2.mp4" type="video/mp4">
+			  Your browser does not support the video tag.
+			</video>
+		  </div>
 
-      <div class="video-card">
-        <video controls>
-          <source src="./assets/videos/vid4.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
+		  <div class="video-card">
+			<video controls>
+			  <source src="./assets/videos/vid3.mp4" type="video/mp4">
+			  Your browser does not support the video tag.
+			</video>
+		  </div>
+
+		  <div class="video-card">
+			<video controls>
+			  <source src="./assets/videos/vid4.mp4" type="video/mp4">
+			  Your browser does not support the video tag.
+			</video>
+		  </div>
+		</div>
+	</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="portfolio-section">
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" required placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required placeholder="kayleemcmacken2003@gmail.com">
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" required placeholder="Tell me about the services you're interested in..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </section>
 
   </main>
+
+  <script>
+    const contentData = {
+      'about': { title: 'About Me', desc: 'Cosmetology Student at The Salon Professional Academy' },
+      'gallery': { title: 'Gallery', desc: 'Transformation highlights' },
+      'videos': { title: 'Video Gallery', desc: 'Full-service cosmetologist. Explore my portfolio below.' },
+      'contact': { title: 'Get In Touch', desc: 'Have questions or ready to update your look? Drop a message here.' }
+    };
+
+    function showSection(sectionId) {
+      // Hide all content containers
+      document.querySelectorAll('.portfolio-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Reveal targeted section container explicitly
+      const activeSection = document.getElementById(sectionId);
+      if (activeSection) {
+        activeSection.classList.add('active');
+      }
+
+      // Update header details cleanly
+      if (contentData[sectionId]) {
+        document.getElementById('sectionTitle').innerText = contentData[sectionId].title;
+        document.getElementById('sectionDesc').innerText = contentData[sectionId].desc;
+      }
+
+      // Update button active styling highlights
+      document.querySelectorAll('.nav-links button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      const activeBtn = document.getElementById('btn-' + sectionId);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+      }
+      
+      // Reset view smooth positioning
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Default initializer step: sets page to land on a general welcome view where sections are hidden until a button is clicked.
+    // To land on a specific section right away, change 'about' below to 'videos', 'gallery', etc.
+    window.addEventListener('DOMContentLoaded', () => {
+      showSection('about');
+    });
+  </script>
 
 </body>
 </html>
