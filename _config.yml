@@ -2,3 +2,5 @@ remote_theme: pages-themes/slate@v0.2.0
 plugins:
 - jekyll-remote-theme
 show_downloads: false
+title: Kaylee's portfolio
+description: Book with Kaylee today at The Salon Professional Academy in Colorado Springs!
