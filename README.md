@@ -386,8 +386,8 @@
   <script>
     const contentData = {
       'about': { title: 'About Me', desc: 'Cosmetology Student at The Salon Professional Academy' },
-      'gallery': { title: 'Gallery', desc: 'Transformation highlights' },
-      'videos': { title: 'Video Gallery', desc: 'Full-service cosmetologist. Explore my portfolio below.' },
+      'gallery': { title: 'Transformation Highlights', desc: '' },
+      'videos': { title: 'Transformation and Relaxation', desc: '' },
       'contact': { title: 'Get In Touch', desc: 'Have questions or ready to update your look? Drop a message here.' }
     };
 
