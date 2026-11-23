@@ -114,22 +114,26 @@
   /* Mobile Responsive Optimizations */
   @media (max-width: 768px) {
     .header-bar {
-      padding: 15px;
+      padding: 15px 10px;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       text-align: center;
     }
     
-    .nav-links a:not(.book-btn) {
-      display: none; /* Hides secondary links on mobile to save space */
+    .nav-links {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;       /* Allows buttons to wrap gracefully if the screen is very narrow */
+      gap: 10px;
     }
 
-    .nav-links a.book-btn {
-      margin-left: 0;
+    .nav-links a {
+      margin-left: 0;       /* Replaced with container gap spacing */
+      font-size: 0.9rem;    /* Makes font slightly cleaner on mobile */
     }
 
     .main-content {
-      margin-top: 140px; /* Account for taller stacked header */
+      margin-top: 160px;    /* Extra spacing to prevent stacked header from overlapping text */
     }
 
     /* Force all videos to take up optimal mobile viewing width */
@@ -150,7 +154,7 @@
       <a href="#gallery">Gallery</a>
       <a href="#videos">Videos</a>
       <a href="#contact">Contact</a>
-      <a href="https://www.tspacoloradosprings.com/salon-services/" class="book-btn">Book Now</a>
+      <a href="https://tspacoloradosprings.com" class="book-btn">Book Now</a>
     </nav>
   </header>
 
