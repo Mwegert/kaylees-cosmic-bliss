@@ -1,14 +1,5 @@
 ---
 ---
-@import "{{ site.theme }}";
-
-.downloads {
-  display: none !important;
-}
-
-.sidebar .button {
-  display: none !important;
-}
 
 body {
   background-image: url('../images/background.jpg') !important;
@@ -16,7 +7,4 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
-footer {
-  display: none !important;
 }
