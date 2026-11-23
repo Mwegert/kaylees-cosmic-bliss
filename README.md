@@ -307,7 +307,7 @@
     <section id="about" class="portfolio-section">
       <div style="background: #FFFFFF; padding: 40px; border-radius: 8px; max-width: 800px; margin: 0 auto;">
         <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 20px;">Hi, I'm Kaylee McMacken</h2>
-        <p style="margin-bottom: 15px;">Welcome to my cosmic oasis! As a  cosmetology student, I specialize in transforming hair - particularly curly hair, skin, and nails to help my clients look and feel their absolute best.</p>
+        <p style="margin-bottom: 15px;">Welcome! As a cosmetology student, I specialize in transforming hair - particularly curly hair, skin, and nails to help my clients look and feel their absolute best.</p>
       </div>
     </section>
 
